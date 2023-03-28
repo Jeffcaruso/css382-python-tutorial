@@ -35,7 +35,17 @@ def buyLotsOfFruit(orderList):
     Returns cost of order
     """
     totalCost = 0.0
+    curCost = 0.0
     "*** YOUR CODE HERE ***"
+    for fruit, lbs in orderList:
+        #print(fruit)
+        #print(lbs)
+        curCost = fruitPrices.get(fruit) * lbs
+        print(curCost)
+        totalCost += curCost
+        print("running total is %d" % totalCost)
+
+
     return totalCost
 
 

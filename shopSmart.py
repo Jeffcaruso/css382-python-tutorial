@@ -30,7 +30,32 @@ def shopSmart(orderList, fruitShops):
         fruitShops: List of FruitShops
     """
     "*** YOUR CODE HERE ***"
-    return None
+
+    bestPriceYet = 9999999.0
+    bestShopYet = "No Shop Provided"
+
+
+    for shops in fruitShops:
+        #for each possible shop, get the order
+        curCost = 0.0
+        totalCost = 0.0
+        for fruit, lbs in orderList:
+            #calculate cost of the order
+            curCost = shops.getCostPerPound(fruit) * lbs
+            print(curCost)
+            totalCost += curCost
+            print("running total is %d" % totalCost)
+        print("total cost for store is %d" % totalCost)
+        if totalCost < bestPriceYet:
+            #if are best yet, update vars
+            bestPriceYet = totalCost
+            bestShopYet = shops
+
+
+
+
+    #return the best shop after checking all shops
+    return bestShopYet
 
 
 if __name__ == '__main__':
